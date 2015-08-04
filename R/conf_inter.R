@@ -13,7 +13,7 @@
 #' @param col color, default is black
 #' @param lwd line width, default is1
 #' @param lty line type, default is 1
-#' @usage conf_inter(x,y, stder=FALSE, lowci, upci) 
+#' @usage conf_inter(x, y, se=SE, stder=TRUE, low_ci=lowci, up_ci=upci, z=0.1,col="black",lty=1, lwd=1) 
 #'
 #' @export 
 #' 
