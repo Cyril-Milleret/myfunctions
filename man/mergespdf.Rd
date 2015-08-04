@@ -12,7 +12,7 @@ mergespdf(sp1,sp2)
 \item{sp2}{second spatialPointsdataFrame}
 }
 \value{
-a merged SpatialPointsDataFrame. it uses the projection of sp1 if not null
+a merged SpatialPointsDataFrame. it uses the projection of sp1 if the projection is not null
 }
 \description{
 Merge two SpatialPointsDataFrame
