@@ -7,7 +7,7 @@
 #' @param WD character string; folder location of the files DNA_sample.csv and MCP_98_12.shp
 #' @return interactive map of DNA samples of the individual selected
 #' @export 
-#' @usage DNA_plot(ID="G45-12",winter="1112",WD="C:/My_documents/Phd_Cyril/DNA/interactive_map/function_plot") 
+#' @usage DNA_plot(ID="G1-11",winter="1011",WD="C:/My_documents/Phd_Cyril/DNA/interactive_map/function_plot") 
 
 
 
@@ -59,11 +59,15 @@ DNA_plot <- function(ID,winter,WD){
     paste("Territory_=", as.character(DNA_33$territory),sep=""),
     paste("Birth_Territory_=", as.character(DNA_33$BirthTerr),sep=""),
     sep=" "))) 
+  
+  lines_sp <- SpatialLines(list(Lines(list(Line(DNA_33)),ID="a")))
+  
+  lines1 <- spLayer(lines_sp) 
   # Creating an UI object with a layer control
   my.ui <- ui(layers = "topright")
   
   #Generating the map
-  writeMap( mapquest.bm, mcp, dna,
+  writeMap( mapquest.bm, mcp, dna,lines1,
             width = 1500, height = 700, interface = my.ui,
             setView = c(60.5, 15), setZoom = 6,directView="browser")  
 }
@@ -74,5 +78,4 @@ DNA_plot <- function(ID,winter,WD){
 ## winter= character string; winter of the MCP e.g. for MCP 2007/2008 write "0708"; for 2000/2001, write "0001"
 
 ## Working directory; character string; folder location of the files DNA_sample.csv and MCP_98_12.shp
-
 
