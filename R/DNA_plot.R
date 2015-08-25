@@ -61,8 +61,8 @@ DNA_plot <- function(ID,winter,WD){
     sep=" "))) 
   
   lines_sp <- SpatialLines(list(Lines(list(Line(DNA_33)),ID="a")))
-  
   lines1 <- spLayer(lines_sp) 
+  
   # Creating an UI object with a layer control
   my.ui <- ui(layers = "topright")
   
