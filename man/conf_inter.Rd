@@ -4,7 +4,7 @@
 \alias{conf_inter}
 \title{add confidence intervals to a plot}
 \usage{
-conf_inter(x,y, stder=FALSE, lowci, upci)
+conf_inter(x, y, se=SE, stder=TRUE, low_ci=lowci, up_ci=upci, z=0.1,col="black",lty=1, lwd=1)
 }
 \arguments{
 \item{x}{vectors of values on the x axis}

@@ -4,7 +4,7 @@
 \alias{DNA_plot}
 \title{Open an interactive map of DNA samples collected in your browser}
 \usage{
-DNA_plot(ID="G45-12",winter="1112",WD="C:/My_documents/Phd_Cyril/DNA/interactive_map/function_plot")
+DNA_plot(ID="G1-11",winter="1011",WD="C:/My_documents/Phd_Cyril/DNA/interactive_map/function_plot")
 }
 \arguments{
 \item{ID}{character string; ID of the Individual}
