@@ -7,7 +7,7 @@
 DNA_plot(ID="G1-11",winter="1011",WD="C:/My_documents/Phd_Cyril/DNA/interactive_map/function_plot")
 }
 \arguments{
-\item{ID}{character string; ID of the Individual}
+\item{ID}{character string; Genetic ID of the Individual}
 
 \item{winter}{character string; winter of the MCP e.g. for MCP 2007/2008 write "0708"; for 2000/2001, write "0001"}
 

@@ -2,7 +2,7 @@
 #' 
 #' 
 #' 
-#' @param ID character string; ID of the Individual 
+#' @param ID character string; Genetic ID of the Individual 
 #' @param winter character string; winter of the MCP e.g. for MCP 2007/2008 write "0708"; for 2000/2001, write "0001"
 #' @param WD character string; folder location of the files DNA_sample.csv and MCP_98_12.shp
 #' @return interactive map of DNA samples of the individual selected
@@ -76,6 +76,5 @@ DNA_plot <- function(ID,winter,WD){
 ## run the function 
 ## ID= character string; ID of the Individual  
 ## winter= character string; winter of the MCP e.g. for MCP 2007/2008 write "0708"; for 2000/2001, write "0001"
-
 ## Working directory; character string; folder location of the files DNA_sample.csv and MCP_98_12.shp
 
