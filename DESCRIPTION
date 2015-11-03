@@ -1,9 +1,9 @@
 Package: myfunctions
-Title: Rpackage cyril 
+Title: Rpackage cyril
 Description: a simple package
 Version: 0.1
 Author: Cyril Milleret <cyril.milleret@gmail.com>
-Maintainer: Cyril Milleret <cyril.milleret@gmail.com> 
+Maintainer: Cyril Milleret <cyril.milleret@gmail.com>
 License: hihm
 LazyData: true
 Depends:
@@ -11,3 +11,4 @@ Depends:
     rleafmap,
     rgdal,
     sp
+RoxygenNote: 5.0.0

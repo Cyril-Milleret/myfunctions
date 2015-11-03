@@ -9,14 +9,14 @@
 #' @param 1,0,1,
 #' @param 1.1,1  where 0 is the focal cell where the index is calculated and 1 the cells use to calculated the relative index
 #' @param na.rm whether NA cells should be computed or not. 
-#' @usage Terrain <- TRI(r1= veg_mask,res=3,na.rm=TRUE)
+#' @usage Terrain <- TRI(r1= veg_mask,gri=3,na.rm=TRUE)
 #' @export 
 #' @examples  
 #'  library(raster)
-#'  r1 <- raster(nrows=10, ncols=10, xmn=0, xmx=10)
+#'  r1 <- raster(nrows=5, ncols=5, xmn=0, xmx=10)
 #'  r1
-#'  values(r1) <- c(1:100)
-#'  hey <- TRI(r1, gri=7, na.rm=TRUE)
+#'  values(r1) <- c(1:25)
+#'  hey <- TRI(r1, gri=3, na.rm=TRUE)
 #'  image(hey)
 #'  matrix(values(r1), ncol=4, byrow=T)
 #'  values(hey)
