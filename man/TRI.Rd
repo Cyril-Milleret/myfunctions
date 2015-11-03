@@ -4,15 +4,18 @@
 \alias{TRI}
 \title{Compute a terrain ruggedness index followin sappington et al 2007}
 \usage{
-Terrain <- TRI(r= veg_mask,layer=veg_mask$elevation)
+Terrain <- TRI(r1= veg_mask,res=3)
 }
 \arguments{
-\item{r}{is the SpatialPixel(DataFrame)}
+\item{r1}{is the raster layer to compute TRI from}
 
-\item{layer}{the layer where elevation is stored (for instance r$elevation)}
+\item{gri}{is the resolution of the grid in which TRI should be calculated. grid=3 will look like this :
+1,1,1,
+1,0,1,
+1.1,1  where 0 is the focal cell where the index is calculated and 1 the cells use to calculated the relative index}
 }
 \description{
-it returns the sum of the absolute values of the elevation differences between a central grid cell and its 8 neighboring cells
+it returns a raster layer with the sum of the absolute values of the elevation differences between a central grid cell and its 8 neighboring cells
 }
 \author{
 Cyril Milleret
