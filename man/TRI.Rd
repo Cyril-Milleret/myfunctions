@@ -2,20 +2,35 @@
 % Please edit documentation in R/TRI.R
 \name{TRI}
 \alias{TRI}
-\title{Compute a terrain ruggedness index followin sappington et al 2007}
+\title{Compute a terrain ruggedness index following sappington et al 2007}
 \usage{
-Terrain <- TRI(r1= veg_mask,res=3)
+Terrain <- TRI(r1= veg_mask,res=3,na.rm=TRUE)
 }
 \arguments{
 \item{r1}{is the raster layer to compute TRI from}
 
-\item{gri}{is the resolution of the grid in which TRI should be calculated. grid=3 will look like this :
-1,1,1,
-1,0,1,
-1.1,1  where 0 is the focal cell where the index is calculated and 1 the cells use to calculated the relative index}
+\item{gri}{is the resolution of the grid in which TRI should be calculated. grid=3 (default) will look like this :}
+
+\item{na.rm}{whether NA cells should be computed or not.}
+
+\item{1,1,1,}{}
+
+\item{1,0,1,}{}
+
+\item{1.1,1}{where 0 is the focal cell where the index is calculated and 1 the cells use to calculated the relative index}
 }
 \description{
 it returns a raster layer with the sum of the absolute values of the elevation differences between a central grid cell and its 8 neighboring cells
+}
+\examples{
+library(raster)
+ r1 <- raster(nrows=10, ncols=10, xmn=0, xmx=10)
+ r1
+ values(r1) <- c(1:100)
+ hey <- TRI(r1, gri=7, na.rm=TRUE)
+ image(hey)
+ matrix(values(r1), ncol=4, byrow=T)
+ values(hey)
 }
 \author{
 Cyril Milleret
