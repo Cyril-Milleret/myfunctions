@@ -5,13 +5,11 @@
 #' 
 #' @author Cyril Milleret 
 #' @param X a kselect (adehabitatHS) object
-#' @param bin length of the intervals to calculate proportion on used habitat
+#' @param bin length of the intervals to calculate proportion of used scores
 #' @return A list of paired matrix with a Pianka index calculated on each axis and a Weighted (based on eigen values) Pianka index calculated on all axes
-
 #' @usage niche_overlap_index(X, bin=0.10) 
 #'
 #' @export 
-#' @description 
 #' @examples 
 #' library(adehabitatHS)
 #' data(puechabonsp)
