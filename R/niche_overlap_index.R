@@ -49,7 +49,7 @@ niche_overlap_index <- function(X, bin = 0.10) {
   interv  <- seq( min(X$ls) - 0.1, max(X$ls) + 0.1, by = bin)
   #here create another interval to have the complete distribution of intervals
   interv1 <- seq (min(X$ls) - 0.1, max(X$ls) + 0.1, by = 0.02)
-  eig_perc <- X$eig / sum(X$eig)## calculate marginality explained (% ) on each axes
+  eig_perc <- X$eig[1 : ncol(X$l1)] / sum(X$eig[1 : ncol(X$l1)])
   
   # create empty list to store the data
   m <- list()
