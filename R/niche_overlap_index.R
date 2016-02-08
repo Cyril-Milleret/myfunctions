@@ -117,7 +117,7 @@ niche_overlap_index <- function(X, bin = 0.10) {
       hey$pianka[z] <- pianka(store[[ (hey[z,1]) ]],store[[(hey[z,2]) ]])
     }
     ## store the results in a paired matrix for each  
-    m[[j]] <- matrix(hey$pianka, ncol=4, byrow =T, dimnames = list(factr, factr) )
+    m[[j]] <- matrix(hey$pianka, ncol=length(fact_num), byrow =T, dimnames = list(factr, factr) )
     
   }
   
