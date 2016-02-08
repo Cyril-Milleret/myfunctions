@@ -42,6 +42,7 @@
 
 niche_overlap_index <- function(X, bin = 0.10) {
   require(adehabitatHS)
+  X$initfac <- as.factor(X$initfac)
   ## bin the data to count how many points are within each interval.
   ## create the interval vector from min and maximum data observed
   ## add 0.1 to make sure all data fit whitin intervals
