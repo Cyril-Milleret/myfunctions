@@ -9,12 +9,12 @@ niche_overlap_index(X, bin=0.10)
 \arguments{
 \item{X}{a kselect (adehabitatHS) object}
 
-\item{bin}{length of the intervals to calculate proportion on used habitat}
+\item{bin}{length of the intervals to calculate proportion of used scores}
 }
 \value{
 A list of paired matrix with a Pianka index calculated on each axis and a Weighted (based on eigen values) Pianka index calculated on all axes
 }
-\details{
+\description{
 Derive a Pianka index from a kselect object to estimate a degree of habitat niche overlap between species/indviduals
 }
 \examples{
