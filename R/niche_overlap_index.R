@@ -60,7 +60,7 @@ niche_overlap_index <- function(X, bin = 0.10) {
     
     # get list of all possible  interval 
     possible_intervals <- data.frame(table(cut(interv1, b = interv)))
-    
+    gc()
     #replace name of the column
     colnames(possible_intervals)[1] <- c("interval")
     
@@ -71,11 +71,11 @@ niche_overlap_index <- function(X, bin = 0.10) {
     knr <- data.frame(X$ls)# axis
     knr$initfac <- X$initfac  # factors (animals)
     knr$initwei <- X$initwei  # utilisation weight
-    
+    gc()
     for ( i in 1 : length(factr)) { # for each ID
       
       tmp <- knr[knr$initfac==factr[i],] #subset for each IDS
-      
+      gc()
       tmp$interval <- cut(tmp[,j], b = interv) # split in interval
       merge_inter <- merge(possible_intervals, tmp, by="interval")## merge it with intervals 
       
@@ -89,7 +89,7 @@ niche_overlap_index <- function(X, bin = 0.10) {
       
       #  count for each intervals freq of interval utilisation 
       intervals <- data.frame(table(cut(tmp[,j], b = interv)))
-      
+      gc()
       ### merge it with all informatiosn 
       tmp_merge <- merge(intervals, tmp1,by="Var1")
       ## replace NA by zero
@@ -110,7 +110,7 @@ niche_overlap_index <- function(X, bin = 0.10) {
     fact_num  <- as.numeric(factr) 
     # get all combinations of id possible
     hey <- expand.grid(ID = fact_num, ID1 = fact_num)
-    
+    gc()
     # loop on it to calculate pianka index for each ID.
     for ( z in 1:nrow(hey)){
       hey$pianka[z] <- pianka(store[[ (hey[z,1]) ]],store[[(hey[z,2]) ]])
@@ -124,7 +124,7 @@ niche_overlap_index <- function(X, bin = 0.10) {
   axis_nb <- c(1: ncol(kn$l1))
   names(m) <- sapply(m, function(x) paste("Pianka overlap axis",axis_nb,sep=" "))[,1]
   
-  
+  gc()
   
   m1<-list()
   ## calculate the overall weighted pianka index of all axis 
