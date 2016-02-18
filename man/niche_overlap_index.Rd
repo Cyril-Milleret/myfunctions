@@ -4,18 +4,26 @@
 \alias{niche_overlap_index}
 \title{Index of habitat niche overalp}
 \usage{
-niche_overlap_index(X, bin=0.10)
+niche_overlap_index(X, kernel = "gaussian", bw = "nrd0")
 }
 \arguments{
 \item{X}{a kselect (adehabitatHS) object}
 
-\item{bin}{length of the intervals to calculate proportion of used scores}
+\item{kernel}{a character string giving the smoothing kernel to be used. Default is "gaussian" see \code{density}}
+
+\item{bw}{the smoothing bandwidth to be used to compute the kernel density. Default is "nrd0"}
 }
 \value{
-A list of paired matrix with a Pianka index calculated on each axis and a Weighted (based on eigen values) Pianka index calculated on all axes
+A list of paired matrix with an overlap index between each individuals calculated on each axis and a Weighted (based on eigen values of the kslecte) overlap index calculated on all axes
 }
 \description{
-Derive a Pianka index from a kselect object to estimate a degree of habitat niche overlap between species/indviduals
+Derive an index (0: complete separation, 1: complete overlap) from a kselect object to estimate a degree of habitat niche overlap between species/indviduals
+}
+\details{
+Uses scores  scores obtained for each individual on each dimension of the ecological space of the Kselect and compute a non-parametric kernel estimation. 
+Area of overlap is then calculated. Eigen values of the kslect are then used to calculated an overlap weihgted index.
+ \deqn{O_{ij} = \int_{b}^{a} \left [ f(x) - g(x) \right ]dx}
+ \deqn{\bar{O_{ij}} =  \frac{\sum_{e}^{n} O_{ij_{e}} \lambda _{e}}{\sum_{e}^{n} \lambda _{e}}}
 }
 \examples{
 library(adehabitatHS)
@@ -24,8 +32,8 @@ data(puechabonsp)
 locs <- puechabonsp$relocs
 map <- puechabonsp$map
 
-## compute the home range of animals (e.g. using the minimum convex
-## polygon)
+## compute the home range of animals (e.g. using the minimum convex polygon)
+ 
 pc <- mcp(locs[,"Name"])
 hr <- hr.rast(pc, map)
 
@@ -43,7 +51,7 @@ kn <- kselect(acp, x$factor, x$weight,
               scannf = FALSE, nf = 4)
 
 # compute habitat niche overlap 
-niche_overlap_index(kn,bin=0.1)
+niche_overlap_index(kn, kernel = "gaussian", bw = "nrd0")
 }
 \author{
 Cyril Milleret

@@ -12,11 +12,14 @@ Terrain <- TRI(r1= veg_mask,gri=3,na.rm=TRUE)
 \item{gri}{is the resolution of the grid in which TRI should be calculated. grid=3 (default) will look like this :}
 
 \item{na.rm}{whether NA cells should be computed or not.}
-
-\item{1.1, 1}{where 0 is the focal cell where the index is calculated and 1 the cells use to calculated the relative index}
 }
 \description{
 it returns a raster layer with the sum of the absolute values of the elevation differences between a central grid cell and its 8 neighboring cells
+}
+\details{
+1,1,1,
+         1,0,1,
+         1.1,1  where 0 is the focal cell where the index is calculated and 1 the cells used to calculated the relative index
 }
 \examples{
  

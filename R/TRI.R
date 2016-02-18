@@ -5,9 +5,9 @@
 #' @author Cyril Milleret 
 #' @param r1 is the raster layer to compute TRI from
 #' @param gri is the resolution of the grid in which TRI should be calculated. grid=3 (default) will look like this :
-#' @param 1,1,1,
-#' @param 1,0,1,
-#' @param 1.1,1  where 0 is the focal cell where the index is calculated and 1 the cells use to calculated the relative index
+#' @details  1,1,1,
+#'          1,0,1,
+#'          1.1,1  where 0 is the focal cell where the index is calculated and 1 the cells used to calculated the relative index
 #' @param na.rm whether NA cells should be computed or not. 
 #' @usage Terrain <- TRI(r1= veg_mask,gri=3,na.rm=TRUE)
 #' @export 
