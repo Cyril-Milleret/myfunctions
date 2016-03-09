@@ -58,7 +58,7 @@ niche_overlap_index <- function(X, kernel = "gaussian", bw = "nrd0") {
   
   # create empty list to store the data
   m <- list()
-  eig_perc <- X$eig[1 : ncol(X$l1)] / sum(X$eig[1 : ncol(X$l1)])
+  eig_perc <- X$eig[1 : ncol(X$ls)] / sum(X$eig[1 : ncol(X$ls)])
   
   ### compile all the data needed in a single dataf
   knr <- data.frame(X$ls)# axis
@@ -70,7 +70,7 @@ niche_overlap_index <- function(X, kernel = "gaussian", bw = "nrd0") {
   
   
   ## loop for each axis of the
-  for (j in 1 : ncol(X$l1)) {
+  for (j in 1 : ncol(X$ls)) {
     ## create the interval vector from min and maximum data observed
     #adding a buffer so that tails aren't cut off
     
@@ -124,14 +124,14 @@ niche_overlap_index <- function(X, kernel = "gaussian", bw = "nrd0") {
   }
   
   # now replace the name in the list 
-  axis_nb <- c(1: ncol(kn$l1))
+  axis_nb <- c(1: ncol(kn$ls))
   names(m) <- sapply(m, function(x) paste("Overlap index axis",axis_nb,sep=" "))[,1]
   
   gc()
   
   m1<-list()
   ## calculate the overall weighted pianka index of all axis 
-  for ( a in 1:ncol(kn$l1)) {
+  for ( a in 1:ncol(kn$ls)) {
     m1[[a]]<- m[[a]] * eig_perc[a]
     
   }
