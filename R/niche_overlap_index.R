@@ -14,6 +14,7 @@
 #' Area of overlap between distribution of the two indviduals is calculated. Eigen values of the kslect are then used to calculated an overlap weihgted index.
 #'  \deqn{O_{ij} = \int_{b}^{a} \left [ f(x) - g(x) \right ]dx}
 #'  \deqn{\bar{O_{ij}} =  \frac{\sum_{e}^{n} O_{ij_{e}} \lambda _{e}}{\sum_{e}^{n} \lambda _{e}}}
+#' i and j are the two individuals to be compared, f(x) and f(x) the two probability functions of indviduals i and j and e each of the axes. 
 #' 
 #' @export 
 #' @examples 
