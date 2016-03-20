@@ -49,6 +49,8 @@
 
 niche_overlap_index <- function(X, kernel = "gaussian", bw = "nrd0") {
   require(adehabitatHS)
+  require(sfsmisc)
+  
   if(is.factor(X$initfac) == FALSE)
     stop("X$initfac should be a factor")
   
@@ -110,7 +112,6 @@ niche_overlap_index <- function(X, kernel = "gaussian", bw = "nrd0") {
       d$w <- pmin(d$a, d$b)
       
       # integrate areas under curves
-      library(sfsmisc)
       total <- integrate.xy(d$x, d$a) + integrate.xy(d$x, d$b)
       intersection <- integrate.xy(d$x, d$w)
       
