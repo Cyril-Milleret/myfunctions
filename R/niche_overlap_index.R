@@ -6,12 +6,12 @@
 #' @author Cyril Milleret 
 #' @param X a kselect (adehabitatHS) object
 #' 
-#' @param kernel a character string giving the smoothing kernel to be used. Default is "gaussian" see \code{density}
-#' @param bw the smoothing bandwidth to be used to compute the kernel density. Default is "nrd0"
-#' @return A list of paired matrix with an overlap index between each individuals calculated on each axis and a Weighted (based on eigen values of the kslecte) overlap index calculated on all axes
+#' @param kernel a character string giving the smoothing kernel to be used. Default is "gaussian". See \code{density()}
+#' @param bw the smoothing bandwidth to be used to compute the kernel density. Default is "nrd0". See \code{density()}
+#' @return A list of paired matrices with an overlap index between each individuals calculated on each axis and a Weighted (based on eigen values of the kselect) overlap index calculated on all axes
 #' @usage niche_overlap_index(X, kernel = "gaussian", bw = "nrd0") 
-#' @details Uses scores  scores obtained for each individual on each dimension of the ecological space of the Kselect and compute a non-parametric kernel estimation. 
-#' Area of overlap is then calculated. Eigen values of the kslect are then used to calculated an overlap weihgted index.
+#' @details Uses scores obtained for each individual on each dimension of the ecological space of the Kselect and compute a non-parametric kernel estimation. 
+#' Area of overlap between distribution of the two indviduals is calculated. Eigen values of the kslect are then used to calculated an overlap weihgted index.
 #'  \deqn{O_{ij} = \int_{b}^{a} \left [ f(x) - g(x) \right ]dx}
 #'  \deqn{\bar{O_{ij}} =  \frac{\sum_{e}^{n} O_{ij_{e}} \lambda _{e}}{\sum_{e}^{n} \lambda _{e}}}
 #' 
