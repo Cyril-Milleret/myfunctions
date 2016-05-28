@@ -10,5 +10,8 @@ Depends:
     devtools,
     rleafmap,
     rgdal,
-    sp
+    sp,
+    shiny,
+    leaflet,
+    htmltools
 RoxygenNote: 5.0.0

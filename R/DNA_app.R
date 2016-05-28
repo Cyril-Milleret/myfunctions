@@ -5,18 +5,18 @@
 #' @param WD  character string; folder location of the files "DNA_sample.csv" and "MCP_98_12.shp" e.g C:/Users/cyrilm/Desktop"
 #' @return interactive map of DNA samples of the individual selected
 #' @export 
-#' @usage DNA_app(C:/Users/cyrilm/Desktop") 
+#' @examples DNA_app("C:/Users/cyrilm/Desktop") 
 
 
 
 ######## load the function ####
 DNA_app <- function(WD){
   setwd(WD)
-  library(shiny)
-  library(sp)
-  library(rgdal)
-  library(leaflet)
-  library(htmltools)
+  require(shiny)
+  require(sp)
+  require(rgdal)
+  require(leaflet)
+  require(htmltools)
   r_colors <- rgb(t(col2rgb(colors()) / 255))
   names(r_colors) <- colors()
   
