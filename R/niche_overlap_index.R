@@ -168,7 +168,7 @@ niche_overlap_index<-
     }
     
     # now replace the name in the list 
-    axis_nb <- c(1: ncol(kn$ls))
+    axis_nb <- c(1: ncol(X$ls))
     names(m) <- sapply(m, function(x) paste("Overlap index axis",axis_nb,sep=" "))[,1]
     if(permutations==TRUE){
       names(m2) <- sapply(m2, function(x) paste("Pvalues index axis",axis_nb,sep=" "))[,1]
@@ -177,7 +177,7 @@ niche_overlap_index<-
     
     m1<-list()
     ## calculate the overall weighted pianka index of all axis 
-    for ( a in 1:ncol(kn$ls)) {
+    for ( a in 1:ncol(X$ls)) {
       m1[[a]]<- m[[a]] * eig_perc[a]
       
     }
