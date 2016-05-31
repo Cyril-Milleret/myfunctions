@@ -158,7 +158,6 @@ niche_overlap_index<-
           exp_gri$pvalue[z] <- ran.test$pvalue
           
         }
-        print(j)
       }
       ## store the results in a paired matrix for each  
       m[[j]] <- matrix(exp_gri$overlap, ncol=length(fact_num), byrow =T, dimnames = list(factr, factr) )
