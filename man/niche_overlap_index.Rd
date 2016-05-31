@@ -12,6 +12,12 @@ niche_overlap_index(X, kernel = "gaussian", bw = "nrd0")
 \item{kernel}{a character string giving the smoothing kernel to be used. Default is "gaussian". See \code{density()}}
 
 \item{bw}{the smoothing bandwidth to be used to compute the kernel density. Default is "nrd0". See \code{density()}}
+
+\item{permutations}{logical, if permutations should be computed or not}
+
+\item{nb.permutations}{number of permutations to compute}
+
+\item{hypothesis}{the H0 to be tested: c("segregation","overlap")}
 }
 \value{
 A list of paired matrices with an overlap index between each individuals calculated on each axis and a Weighted (based on eigen values of the kselect) overlap index calculated on all axes
@@ -52,7 +58,7 @@ kn <- kselect(acp, x$factor, x$weight,
               scannf = FALSE, nf = 4)
 
 # compute habitat niche overlap 
-niche_overlap_index(kn, kernel = "gaussian", bw = "nrd0")
+niche_overlap_index(kn, kernel = "gaussian", bw = "nrd0",permutations=TRUE,nb.permutations=100,hypothesis="segregation")
 }
 \author{
 Cyril Milleret
