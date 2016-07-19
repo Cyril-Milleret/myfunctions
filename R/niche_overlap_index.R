@@ -50,6 +50,15 @@
 #' niche_overlap_index(kn, kernel = "gaussian", bw = "nrd0",permutations=TRUE,nb.permutations=100,hypothesis="segregation")
 
 
+setwd("C:/Users/cyrilm/Desktop")
+load("kn.Rdata")
+initfac <-sapply(strsplit(as.character(kn$initfac), "_"), function(x) x[4])
+initfac [initfac %in% c("2011","2012","2013","2014","2015")] <- "Wolf"
+
+
+kn$initfac <- as.factor(initfac)
+
+
 
 
 niche_overlap_index<- 
@@ -70,7 +79,7 @@ niche_overlap_index<-
     
     
     # get list of individuals 
-    factr <- unique(X$initfac)
+    factr <- sort(unique(X$initfac))
     
     # create empty list to store the data
     m <- list()
@@ -114,13 +123,22 @@ niche_overlap_index<-
       fact_num  <- as.numeric(factr) 
       # get all combinations of id possible
       exp_gri <- expand.grid(ID = fact_num, ID1 = fact_num)
-      exp_gri$overlap<-0
+      exp_gri$ID_2 <- c(1:length(exp_gri$ID1))
+      
+      
+      mw <- matrix(exp_gri$ID_2, ncol = length(fact_num), 
+                   byrow = T, dimnames = list(factr, factr))
+      
+      mw1<- mw [upper.tri(mw)]
+      
+      
+      exp_gri$overlap <- 0
       gc()
       
       # loop on it to calculate pianka index for each ID.
-      for ( z in 1:nrow(exp_gri)){
-        da <- store[[ (exp_gri[z,1]) ]]
-        db <- store[[ (exp_gri[z,2]) ]]
+      for ( z in 1:length(mw1)){
+        da <- store[[ (exp_gri[mw1[z],1]) ]]
+        db <- store[[ (exp_gri[mw1[z],2]) ]]
         
         d <- data.frame(x=da$x, a=da$y, b=db$y)
         
@@ -132,7 +150,7 @@ niche_overlap_index<-
         intersection <- integrate.xy(d$x, d$w)
         
         # compute overlap coefficient
-        exp_gri$overlap[z] <- 2 * intersection / total
+        exp_gri$overlap[mw1[z]] <- 2 * intersection / total
         
         ###if permutations 
         if(permutations==TRUE){
