@@ -50,22 +50,22 @@
 #' niche_overlap_index(kn, kernel = "gaussian", bw = "nrd0",permutations=TRUE,nb.permutations=100,hypothesis="segregation")
 
 
-setwd("C:/Users/cyrilm/Desktop")
-load("kn.Rdata")
-initfac <-sapply(strsplit(as.character(kn$initfac), "_"), function(x) x[4])
-initfac [initfac %in% c("2011","2012","2013","2014","2015")] <- "Wolf"
-
-
-kn$initfac <- as.factor(initfac)
+# setwd("C:/Users/cyrilm/Desktop")
+# load("kn.Rdata")
+# initfac <-sapply(strsplit(as.character(kn$initfac), "_"), function(x) x[4])
+# initfac [initfac %in% c("2011","2012","2013","2014","2015")] <- "Wolf"
+# 
+# 
+# initfac <- as.factor(initfac)
 
 
 
 
 niche_overlap_index<- 
-  function(X, kernel = "gaussian", bw = "nrd0", permutations=TRUE, nb.permutations=100,hypothesis="segregation") {
+  function(X,initfac=initfac ,kernel = "gaussian", bw = "nrd0", permutations=TRUE, nb.permutations=100, hypothesis="segregation") {
     require(adehabitatHS)
     require(sfsmisc)
-    
+    X$initfac <- initfac
     if(is.factor(X$initfac) == FALSE)
       stop("X$initfac should be a factor")
     
@@ -103,7 +103,6 @@ niche_overlap_index<-
       lower <- min(knr[,j]) - 0.1 
       upper <- max(knr[,j]) + 0.1
       
-      gc()
       store <- list()
       for ( i in 1 : length(factr)) { # for each ID
         
@@ -115,8 +114,6 @@ niche_overlap_index<-
                         kernel = kernel,
                         bw = bw)
         store[[i]] <- dens
-        gc()
-        
       }
       
       # convert names as numeric for the following loop
