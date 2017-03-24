@@ -57,12 +57,12 @@
 # 
 # 
 # initfac <- as.factor(initfac)
-
-
+# 
+# niche_overlap_index(kn, initfac=initfac, kernel = "gaussian", bw = "nrd0",permutations=FALSE)
 
 
 niche_overlap_index<- 
-  function(X,initfac=initfac ,kernel = "gaussian", bw = "nrd0", permutations=TRUE, nb.permutations=100, hypothesis="segregation") {
+  function(X, initfac=initfac ,kernel = "gaussian", bw = "nrd0", permutations=TRUE, nb.permutations=100, hypothesis="segregation") {
     require(adehabitatHS)
     require(sfsmisc)
     X$initfac <- initfac
@@ -78,6 +78,8 @@ niche_overlap_index<-
     }
     
     
+    
+    ####
     # get list of individuals 
     factr <- sort(unique(X$initfac))
     
